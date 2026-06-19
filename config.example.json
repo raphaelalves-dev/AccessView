@@ -1,0 +1,12 @@
+{
+  "server_ip": "100.100.100.100",
+  "shares": [
+    "BACKUP-2026",
+    "SERVER-FILES"
+  ],
+  "display_name": "Example Server",
+  "port": 445,
+  "connection_timeout": 8,
+  "skip_dfs": true,
+  "auth_protocol": "ntlm"
+}

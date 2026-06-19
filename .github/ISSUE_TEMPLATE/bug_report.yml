@@ -1,0 +1,37 @@
+name: Relatar problema
+description: Informe um comportamento incorreto sem incluir dados sensíveis.
+title: "[Bug] "
+labels:
+  - bug
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Versão
+      placeholder: "0.10.1"
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Descrição
+      description: Não inclua senhas, IPs reais ou nomes internos.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Passos para reproduzir
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Resultado esperado
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs sanitizados
+      render: text

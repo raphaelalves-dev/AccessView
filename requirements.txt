@@ -1,0 +1,3 @@
+smbprotocol>=1.16.1,<2
+Pillow>=11,<13
+pyinstaller>=6.14,<7

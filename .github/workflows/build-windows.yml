@@ -1,0 +1,39 @@
+name: Build Windows artifacts
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Build executables
+        shell: cmd
+        run: build_exe.bat --no-pause
+
+      - name: Create update package
+        shell: cmd
+        run: |
+          if not exist ATUALIZACOES mkdir ATUALIZACOES
+          venv\Scripts\python.exe create_update_package.py --source dist\AccessView --output ATUALIZACOES --app-source app.py --minimum-version 0.10.0 --version-subdir
+
+      - name: Upload application
+        uses: actions/upload-artifact@v4
+        with:
+          name: AccessView-Windows
+          path: dist/AccessView
+
+      - name: Upload update package
+        uses: actions/upload-artifact@v4
+        with:
+          name: AccessView-Update
+          path: ATUALIZACOES/v*/AccessView-Update-v*.zip
