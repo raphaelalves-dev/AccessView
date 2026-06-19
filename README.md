@@ -157,7 +157,7 @@ AccessView/
 Clone o repositório:
 
 ```powershell
-git clone https://github.com/Leahpar-Sevla/AccessView.git
+git clone https://github.com/raphaelalves-dev/AccessView.git
 cd AccessView
 ```
 
